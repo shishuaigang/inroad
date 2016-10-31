@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF8"?>  
-<!-- add blank for git test-->  
+  
 <project name="ant-jmeter-test" default="all" basedir=".">  
     <tstamp>  
         <format property="time" pattern="yyyyMMddHHmm" />  
@@ -24,7 +24,7 @@
     <target name="test">  
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask" />  
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">   
-            <testplans dir="D:\apache-jmeter-3.0\jmeterTest\test" includes="常用50API并发测试.jmx" />  
+            <testplans dir="D:\apache-jmeter-3.0\jmeterTest\test" includes="allAPI.jmx" />  
         </jmeter>  
     </target>  
 	
