@@ -48,7 +48,7 @@
     </target>
 	
 	<target name="sendEmail">   
-        <mail mailhost="smtp.163.com" mailport="25" user="shishuaigang@163.com"  password="ssg!83894276" ssl="false"  from="shishuaigang@163.com" subject="测试报告" messagemimetype="text/html" tolist="sgshi@in-road.com">   
+        <mail mailhost="smtp.163.com" mailport="25" user="shishuaigang@163.com"  password="ssg!83894276" ssl="false"  from="shishuaigang@163.com" subject="所有API测试报告" messagemimetype="text/html" tolist="sgshi@in-road.com">   
 		<fileset dir="D:\test\resultLog\html">
 			<include name="${ReportName}${time}.html"/>
 		</fileset>
