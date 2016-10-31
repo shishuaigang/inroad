@@ -45,7 +45,7 @@
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">192.168.31.99</stringProp>
-          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.port">8088</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
