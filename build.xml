@@ -7,12 +7,12 @@
 			<!-- 需要改成自己本地的 Jmeter 目录-->	
     <property name="jmeter.home" value="D:\apache-jmeter-3.0" />
 			<!-- 指定生成jtl结果的 目录-->	
-    <property name="jmeter.result.jtl.dir" value="D:\test\resultLog\jtl" />
+    <property name="jmeter.result.jtl.dir" value="D:\test\resultLog\${time}" />
 			<!-- 指定生成html结果的 目录-->	
-    <property name="jmeter.result.html.dir" value="D:\test\resultLog\html" />   
+    <property name="jmeter.result.html.dir" value="D:\test\resultLog\${time}" />   
     <property name="ReportName" value="TestReport" />  
-    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}${time}.jtl" />  
-    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${ReportName}${time}.html" />  
+    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}.jtl" />  
+    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${ReportName}.html" />
       
     <target name="all">  
         <antcall target="test" />  
@@ -24,7 +24,7 @@
     <target name="test">  
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask" />  
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">   
-            <testplans dir="D:\apache-jmeter-3.0\jmeterTest\test" includes="allAPI.jmx" />  
+            <testplans dir="D:\apache-jmeter-3.0\jmeterTest\test" includes="Inroad_API.jmx" />  
         </jmeter>  
     </target>  
 	
@@ -48,11 +48,10 @@
     </target>
 	
 	<target name="sendEmail">   
-        <mail mailhost="smtp.163.com" mailport="25" user="shishuaigang@163.com"  password="ssg!83894276" ssl="false"  from="shishuaigang@163.com" subject="所有API测试报告" messagemimetype="text/html" tolist="sgshi@in-road.com,mli@in-road.com,hchen@in-road.com">   
-		<fileset dir="D:\test\resultLog\html">
-			<include name="${ReportName}${time}.html"/>
+        <mail mailhost="smtp.163.com" mailport="25" user="shishuaigang@163.com"  password="ssg!83894276" ssl="false"  from="shishuaigang@163.com" subject="Inroad_API遍历测试" messagemimetype="text/html" tolist="sgshi@in-road.com,mli@in-road.com">   
+		<fileset dir="D:\test\resultLog\${time}">
+			<include name="${ReportName}.html"/> 
 		</fileset>
-           <message>file://\\THINKPAD-PC\resultLog\html\${ReportName}${time}.html</message>   
         </mail>   
     </target>   	
 </project>  
